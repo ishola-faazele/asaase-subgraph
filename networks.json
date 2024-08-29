@@ -1,0 +1,8 @@
+{
+  "celo-alfajores": {
+    "Contract": {
+      "address": "0x351B568A872e6c0e63C8642D0419d747FE03f2e6",
+      "startBlock": 0
+    }
+  }
+}
