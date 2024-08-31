@@ -134,6 +134,4 @@ Once deployed, you can query the subgraph using GraphQL. Below are some example 
 
 This project is licensed under the MIT License.
 
----
 
-This README should give a clear overview of your project, guiding others on how to understand, deploy, and use the subgraph effectively. You can modify it further based on specific details of your implementation or project needs.
