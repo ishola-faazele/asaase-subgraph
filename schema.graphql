@@ -27,14 +27,6 @@ type OwnershipTransferred @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type Paused @entity(immutable: true) {
-  id: Bytes!
-  account: Bytes! # address
-  blockNumber: BigInt!
-  blockTimestamp: BigInt!
-  transactionHash: Bytes!
-}
-
 type Transfer @entity(immutable: true) {
   id: Bytes!
   from: Bytes! # address
@@ -45,9 +37,63 @@ type Transfer @entity(immutable: true) {
   transactionHash: Bytes!
 }
 
-type Unpaused @entity(immutable: true) {
+type LandMinted @entity(immutable: true) {
   id: Bytes!
-  account: Bytes! # address
+  tokenId: BigInt! # uint256
+  boundaryPoints: [Coordinates!]! # array of boundary points
+  details: LandDetails! # land details
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type LandValueUpdated @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt! # uint256
+  newValue: BigInt! # updated land value
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type Owner @entity(immutable:true) {
+  id: ID!
+  address: Bytes!
+  totalTokens: BigInt!
+  totalValue: BigInt!
+  tokenIds: [BigInt!]! 
+}
+
+type Coordinates @entity {
+  id: ID!
+  latitude: BigInt!
+  longitude: BigInt!
+}
+
+type LandDetails @entity {
+  id: ID!
+  size: BigInt!
+  zoning: Int!
+  registrationDate: BigInt!
+  region: Int!
+  city: Int!
+  landName: String!
+  value: BigInt!
+  imageUrl: String!
+}
+
+type BatchMetadataUpdate @entity(immutable: true) {
+  id: Bytes!
+  fromTokenId: BigInt!
+  toTokenId: BigInt!
+  blockNumber: BigInt!
+  blockTimestamp: BigInt!
+  transactionHash: Bytes!
+}
+
+type MetadataUpdate @entity(immutable: true) {
+  id: Bytes!
+  tokenId: BigInt!
   blockNumber: BigInt!
   blockTimestamp: BigInt!
   transactionHash: Bytes!
